@@ -15,9 +15,6 @@ const theme = {
   gray: `#2b363f`,
   darkGray: `#1d242a`,
 
-  white: `white`,
-  black: `black`,
-
   maxWidth: `40em`,
 
   smallBorder: `0.1em`,
