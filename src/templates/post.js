@@ -2,12 +2,13 @@ import React from "react"
 import { graphql } from "gatsby"
 
 import Global from "../components/Global"
-import PostTitle from "../components/PostTitle"
-import PageBody from "../components/styles/PageBody"
+import PageTitle from "../components/PageTitle"
+import { PageBody } from "../components/styles"
+import PostMeta from "../components/PostMeta"
 
 const PostTemplate = ({ data: { post }, location }) => {
   const { title, body, cover } = post
-  const { html, excerpt } = body.data
+  const { html, excerpt } = body.remark
   return (
     <Global
       pageTitle={title}
@@ -15,7 +16,10 @@ const PostTemplate = ({ data: { post }, location }) => {
       description={excerpt}
       hero={cover}
     >
-      <PostTitle post={post} />
+      <PageTitle backdrop img={cover}>
+        <h1>{title}</h1>
+        <PostMeta inTitle {...post} />
+      </PageTitle>
       <PageBody dangerouslySetInnerHTML={{ __html: html }} />
     </Global>
   )
@@ -24,37 +28,6 @@ const PostTemplate = ({ data: { post }, location }) => {
 export default PostTemplate
 
 export const query = graphql`
-  fragment postFields on ContentfulPost {
-    slug
-    title
-    author {
-      name
-      email
-      photo {
-        file {
-          url
-        }
-      }
-    }
-    tags {
-      title
-      slug
-    }
-    date(formatString: "MMM D, YYYY")
-    body {
-      data: childMarkdownRemark {
-        html
-        timeToRead
-        excerpt
-      }
-    }
-    cover {
-      title
-      fluid(quality: 100, maxWidth: 2400) {
-        ...GatsbyContentfulFluid_withWebp
-      }
-    }
-  }
   query($slug: String!) {
     post: contentfulPost(slug: { eq: $slug }) {
       ...postFields
