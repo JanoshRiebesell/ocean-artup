@@ -1,12 +1,12 @@
-import styled, { css } from 'styled-components'
+import styled, { css } from "styled-components"
 
-import mediaQuery from '../../utils/mediaQuery'
+import mediaQuery from "../../utils/mediaQuery"
 
 const inTitle = css`
   justify-items: center;
-  padding: 0.2em 1em;
-  background: rgba(0, 0, 0, 0.6);
-  border-radius: ${props => props.theme.mediumBorderRadius};
+  font-size: 0.6em;
+  width: max-content;
+  margin: auto;
   > :not(:first-child) {
     ${mediaQuery.minPhone} {
       padding-left: 0.7em;
