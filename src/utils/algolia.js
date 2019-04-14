@@ -6,7 +6,7 @@ const pageQuery = `{
         slug
         title
         body {
-          data: childMarkdownRemark {
+          remark: childMarkdownRemark {
             excerpt(pruneLength: 5000)
             headings {
               value
@@ -36,7 +36,7 @@ const postQuery = `{
           slug
         }
         body {
-          data: childMarkdownRemark {
+          remark: childMarkdownRemark {
             excerpt(pruneLength: 5000)
             headings {
               value
@@ -54,7 +54,7 @@ const queries = [
     query: pageQuery,
     transformer: ({ data }) =>
       data.pages.edges.map(({ node: { body, ...rest } }) => ({
-        ...body.data,
+        ...body.remark,
         ...rest,
       })),
     indexName: `Pages`,
@@ -64,7 +64,7 @@ const queries = [
     query: postQuery,
     transformer: ({ data }) =>
       data.posts.edges.map(({ node: { body, ...rest } }) => ({
-        ...body.data,
+        ...body.remark,
         ...rest,
       })),
     indexName: `Posts`,

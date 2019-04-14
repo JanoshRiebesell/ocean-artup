@@ -16,7 +16,7 @@ const PostExcerpt = ({ post, post: { title, slug, body, cover } }) => (
         <Link to={`/blog/` + slug}>{title}</Link>
       </Title>
       <PostMeta {...post} />
-      <Excerpt dangerouslySetInnerHTML={{ __html: body.data.excerpt }} />
+      <Excerpt dangerouslySetInnerHTML={{ __html: body.remark.excerpt }} />
     </main>
   </Post>
 )
