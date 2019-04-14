@@ -1,4 +1,4 @@
-import { css } from 'styled-components'
+import { css } from "styled-components"
 
 const team = css`
   section.team {
@@ -7,29 +7,25 @@ const team = css`
     grid-template-columns: repeat(auto-fit, minmax(8em, 1fr));
     p:first-child,
     h1 {
-      grid-column: 1/-1;
+      grid-column: 1 / -1;
       text-align: center;
     }
     .gatsby-resp-image-wrapper {
-      border-radius: 50%;
+      border-radius: 50% !important;
       overflow: hidden;
       max-width: 10em !important;
     }
-
     p {
       text-align: center;
       margin: 0;
-      img {
-        margin: 0;
-        border-radius: 50%;
-      }
       em {
         display: block;
         font-weight: lighter;
         font-style: normal;
+        font-size: 0.9em;
       }
       em + em {
-        font-size: 0.9em;
+        font-size: 0.8em;
       }
     }
   }
