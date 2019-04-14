@@ -1,12 +1,26 @@
-import React from 'react'
+import React from "react"
+import { StaticQuery, graphql } from "gatsby"
 
-import { Container } from './styles'
+import { TitleDiv, Title, Img } from "./styles"
 
-const PageTitle = ({ title, subtitle }) => (
-  <Container>
-    <h1>{title}</h1>
-    {subtitle && <h2>{subtitle}</h2>}
-  </Container>
+const PageTitle = ({ children, img, defaultImg, height, backdrop }) => (
+  <TitleDiv height={height}>
+    <Img fluid={(img || defaultImg).fluid} alt={(img || defaultImg).title} />
+    <Title backdrop={backdrop}>{children}</Title>
+  </TitleDiv>
 )
 
-export default PageTitle
+const query = graphql`
+  {
+    defaultImg: contentfulAsset(title: { eq: "Background" }) {
+      ...coverFields
+    }
+  }
+`
+
+export default props => (
+  <StaticQuery
+    query={query}
+    render={data => <PageTitle {...data} {...props} />}
+  />
+)
