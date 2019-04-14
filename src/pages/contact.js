@@ -1,10 +1,10 @@
-import React from 'react'
-import { graphql } from 'gatsby'
+import React from "react"
+import { graphql } from "gatsby"
 
-import Global from '../components/Global'
-import PageTitle from '../components/PageTitle'
-import PageBody from '../components/styles/PageBody'
-import Map from '../components/Map'
+import Global from "../components/Global"
+import PageTitle from "../components/PageTitle"
+import { PageBody } from "../components/styles"
+import Map from "../components/Map"
 
 const mapProps = {
   options: {
@@ -25,12 +25,14 @@ const mapProps = {
   },
 }
 
-const Contact = ({ data: { page }, location }) => {
-  const { title, subtitle, body } = page
-  const { excerpt, html } = body && body.data
+export default function ContactPage({ data: { page }, location }) {
+  const { title, body, cover } = page
+  const { excerpt, html } = body && body.remark
   return (
     <Global pageTitle={title} path={location.pathname} description={excerpt}>
-      <PageTitle title={title} subtitle={subtitle} />
+      <PageTitle img={cover}>
+        <h1>{title}</h1>
+      </PageTitle>
       {html && (
         <PageBody>
           <div dangerouslySetInnerHTML={{ __html: html }} />
@@ -41,19 +43,10 @@ const Contact = ({ data: { page }, location }) => {
   )
 }
 
-export default Contact
-
 export const query = graphql`
   {
     page: contentfulPage(slug: { eq: "contact" }) {
-      title
-      subtitle
-      body {
-        data: childMarkdownRemark {
-          excerpt
-          html
-        }
-      }
+      ...pageFields
     }
   }
 `
