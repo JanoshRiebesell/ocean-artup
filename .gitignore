@@ -1,10 +1,13 @@
 # Project dependencies
-.cache
 node_modules
 yarn-error.log
 
 # Build directory
 /public
+.cache
+
+# Config and system files
+.netlify
 .vscode
 .DS_Store
 
