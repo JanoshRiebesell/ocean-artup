@@ -1,9 +1,9 @@
-import styled, { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from "styled-components"
 
-import mediaQuery, { screenSize } from '../../utils/mediaQuery'
-import typography from '../../utils/typography'
+import mediaQuery from "../../utils/mediaQuery"
+import typography from "../../utils/typography"
 
-const { phone, desktop } = screenSize
+const { phone, desktop } = mediaQuery.screens
 const {
   fonts,
   minFontSize,
@@ -37,17 +37,9 @@ export const GlobalStyle = createGlobalStyle`
       color: ${props => props.theme.orange} !important;
     }
   }
-  .gatsby-resp-image-wrapper {
-    transition: 0.5s;
-    :hover {
-      transform: scale(1.05);
-    }
+  div[role="group"][tabindex] {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
   }
-`
-
-export const Root = styled.main`
-  display: grid;
-  grid-gap: 0 4vw;
-  grid-template-columns: 1fr 1fr minmax(auto, ${props => props.theme.maxWidth}) 1fr 1fr;
-  min-height: 100vh;
 `

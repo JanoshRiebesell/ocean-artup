@@ -1,36 +1,30 @@
-import React from 'react'
-import { StaticQuery, graphql } from 'gatsby'
-import { ThemeProvider } from 'styled-components'
-import PropTypes from 'prop-types'
+import React from "react"
+import { StaticQuery, graphql } from "gatsby"
+import { ThemeProvider } from "styled-components"
+import PropTypes from "prop-types"
 
-import Helmet from '../Helmet'
-import Hero from '../Hero'
-import Header from '../Header'
-import Footer from '../Footer'
-import theme from '../../utils/theme'
-import Scroll from '../Scroll'
+import Helmet from "../Helmet"
+import Header from "../Header"
+import Footer from "../Footer"
+import theme from "../../utils/theme"
+import Scroll from "../Scroll"
 
-import { Root, GlobalStyle } from './styles'
+import { GlobalStyle } from "./styles"
 
-const Global = ({ children, site, path, showHero = true, hero, ...rest }) => (
+const Global = ({ children, site, ...rest }) => (
   <ThemeProvider theme={theme}>
-    <Root>
-      <Helmet site={site.meta} path={path} {...rest} />
+    <>
+      <Helmet site={site.meta} {...rest} />
       <GlobalStyle />
-      {showHero && <Hero hero={hero} path={path} />}
       <Header site={site.meta} />
       {children}
       <Footer />
-      <Scroll to="top" position="fixed" align="right" showBelow={1000} />
-    </Root>
+      <Scroll showBelow={1500} css="position: fixed; right: 1em;" />
+    </>
   </ThemeProvider>
 )
 
 Global.propTypes = {
-  site: PropTypes.object.isRequired,
-  path: PropTypes.string.isRequired,
-  showHero: PropTypes.bool,
-  hero: PropTypes.object,
   children: PropTypes.node.isRequired,
 }
 
