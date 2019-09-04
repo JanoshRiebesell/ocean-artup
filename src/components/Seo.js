@@ -1,12 +1,11 @@
-import React from "react"
-import PropTypes from "prop-types"
-import { Helmet } from "react-helmet"
+import PropTypes from 'prop-types'
+import React from 'react'
+import { Helmet } from 'react-helmet'
 
-import favicon from "../assets/favicon.png"
-
-export default function Seo({ site, pageTitle, path, description, children }) {
+export default function Seo({ site, pageTitle, path = ``, ...rest }) {
+  const { description, children } = rest
   const title = pageTitle ? `${pageTitle} | ${site.title}` : site.title
-  const pageUrl = path ? site.url + path : site.url
+  const pageUrl = site.url + path
   const desc = description || site.description
   return (
     <Helmet>
@@ -17,7 +16,6 @@ export default function Seo({ site, pageTitle, path, description, children }) {
       <meta property="og:url" content={pageUrl} />
       <meta property="og:description" content={desc} />
       <meta name="description" content={desc} />
-      <link rel="icon" type="image/png" href={favicon} />
       {children}
     </Helmet>
   )
