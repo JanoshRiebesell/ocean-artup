@@ -1,16 +1,17 @@
-import React, { useState } from "react"
-import { graphql } from "gatsby"
+import { graphql } from 'gatsby'
+import React, { useState } from 'react'
+import Global from '../components/Global'
+import PageTitle from '../components/PageTitle'
+import PostList, { ListTitle, PostContainer } from '../components/PostList'
+import { PageBody } from '../components/styles'
+import TagList from '../components/TagList'
 
-import Global from "../components/Global"
-import PageTitle from "../components/PageTitle"
-import { PageBody } from "../components/styles"
-import TagList from "../components/TagList"
-import PostList from "../components/PostList"
-
-const filterPostsByTag = (tag, posts) =>
-  tag === `all`
+const filterPostsByTag = (activeTag, posts) =>
+  activeTag === `all`
     ? posts
-    : posts.filter(({ node }) => node.tags.map(tag => tag.slug).includes(tag))
+    : posts.filter(({ node }) =>
+      node.tags.map(tag => tag.slug).includes(activeTag)
+    )
 
 const readActiveTagFromUrl = urlParams =>
   urlParams.replace(/.*tag=([^&]+).*/, `$1`)
@@ -33,7 +34,7 @@ export default function BlogPage({ data, location }) {
       tag === `all` ? `/blog` : `/blog?tag=${tag}`
     )
   }
-
+  const campaigns = tags.filter(tag => tag.slug.includes(`campaign`)).reverse()
   return (
     <Global pageTitle="Blog" path={location.pathname}>
       <PageTitle>
@@ -41,7 +42,20 @@ export default function BlogPage({ data, location }) {
       </PageTitle>
       <PageBody>
         <TagList tags={tags} activeTag={tag} setTag={handleTagClick} />
-        <PostList inBlog posts={filteredPosts} />
+        <PostContainer>
+          {campaigns.map(campaign => {
+            const campaignPosts = filteredPosts.filter(post =>
+              post.node.tags.map(tag => tag.slug).includes(campaign.slug)
+            )
+            if (!campaignPosts.length) return null
+            return (
+              <>
+                <ListTitle>{campaign.title}</ListTitle>
+                <PostList inBlog posts={campaignPosts} />
+              </>
+            )
+          })}
+        </PostContainer>
       </PageBody>
     </Global>
   )
