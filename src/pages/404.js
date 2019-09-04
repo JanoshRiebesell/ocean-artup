@@ -1,8 +1,7 @@
-import React from "react"
-import { graphql, Link } from "gatsby"
-
-import Global from "../components/Global"
-import PageTitle from "../components/PageTitle"
+import { graphql, Link } from 'gatsby'
+import React from 'react'
+import Global from '../components/Global'
+import PageTitle from '../components/PageTitle'
 
 export default ({ data, location }) => (
   <Global pageTitle="Error 404" path={location.pathname}>
