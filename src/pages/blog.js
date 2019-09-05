@@ -16,12 +16,21 @@ const filterPostsByTag = (activeTag, posts) =>
 const readActiveTagFromUrl = urlParams =>
   urlParams.replace(/.*tag=([^&]+).*/, `$1`)
 
+const sortCountTags = (tags, totalCount) => {
+  tags = tags.map(({ node }) => ({
+    ...node,
+    count: (node.post && node.post.length) || 0,
+  }))
+  // Make All the first tag in the list.
+  tags.unshift(tags.splice(tags.findIndex(tag => tag.slug === `all`), 1)[0])
+  // Set All count to the total number of posts.
+  tags[0].count = totalCount
+  return tags
+}
+
 export default function BlogPage({ data, location }) {
   let { posts, tags } = data
-  tags = tags.edges.map(({ node }) => ({
-    ...node,
-    count: (node.post && node.post.length) || posts.edges.length,
-  }))
+  tags = sortCountTags(tags.edges, posts.edges.length)
   const urlTag = readActiveTagFromUrl(location.search)
   const [tag, setTag] = useState(urlTag || `all`)
   const filteredPosts = filterPostsByTag(tag, posts.edges)
