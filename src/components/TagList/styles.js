@@ -1,9 +1,9 @@
-import styled from "styled-components"
-export { Tags as TagsIcon } from "styled-icons/fa-solid/Tags"
-import { ToggleOff } from "styled-icons/fa-solid/ToggleOff"
-import { ToggleOn } from "styled-icons/fa-solid/ToggleOn"
+import styled from 'styled-components'
+export { Tags as TagsIcon } from 'styled-icons/fa-solid/Tags'
+import { ToggleOff } from 'styled-icons/fa-solid/ToggleOff'
+import { ToggleOn } from 'styled-icons/fa-solid/ToggleOn'
 
-import mediaQuery from "../../utils/mediaQuery"
+import mediaQuery from '../../utils/mediaQuery'
 
 export const TagGrid = styled.div`
   display: grid;
@@ -34,8 +34,7 @@ export const Tag = styled.button`
   white-space: nowrap;
   color: ${props => props.theme.darkGray};
   border-radius: ${props => props.theme.smallBorderRadius};
-  background: ${({ active, theme }) =>
-    active ? theme.orange : theme.lightestGray};
+  background: ${({ active, theme }) => (active ? theme.orange : theme.lightestGray)};
   ${mediaQuery.maxPhablet} {
     padding: 0.1em 0.5em 0.2em;
     margin: 0 1em 1em 0;

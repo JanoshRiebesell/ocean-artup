@@ -1,7 +1,7 @@
-import React from "react"
-import styled, { css } from "styled-components"
-import { Search } from "styled-icons/fa-solid/Search"
-import { Algolia } from "styled-icons/fa-brands/Algolia"
+import React from 'react'
+import styled, { css } from 'styled-components'
+import { Search } from 'styled-icons/fa-solid/Search'
+import { Algolia } from 'styled-icons/fa-brands/Algolia'
 
 export const Root = styled.div`
   position: relative;

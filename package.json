@@ -67,5 +67,11 @@
     "node_modules",
     ".cache",
     "public"
-  ]
+  ],
+  "prettier": {
+    "trailingComma": "es5",
+    "semi": false,
+    "singleQuote": true,
+    "printWidth": 88
+  }
 }

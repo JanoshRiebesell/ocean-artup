@@ -9,12 +9,9 @@ import TagList from '../components/TagList'
 const filterPostsByTag = (activeTag, posts) =>
   activeTag === `all`
     ? posts
-    : posts.filter(({ node }) =>
-      node.tags.map(tag => tag.slug).includes(activeTag)
-    )
+    : posts.filter(({ node }) => node.tags.map(tag => tag.slug).includes(activeTag))
 
-const readActiveTagFromUrl = urlParams =>
-  urlParams.replace(/.*tag=([^&]+).*/, `$1`)
+const readActiveTagFromUrl = urlParams => urlParams.replace(/.*tag=([^&]+).*/, `$1`)
 
 const sortCountTags = (tags, totalCount) => {
   tags = tags.map(({ node }) => ({

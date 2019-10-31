@@ -1,7 +1,7 @@
-import React, { useState } from "react"
-import PropTypes from "prop-types"
+import React, { useState } from 'react'
+import PropTypes from 'prop-types'
 
-import { TagGrid, Toggle, Tag, TagsIcon } from "./styles"
+import { TagGrid, Toggle, Tag, TagsIcon } from './styles'
 
 export default function TagList({ tags, activeTag, setTag }) {
   const [open, setOpen] = useState(false)

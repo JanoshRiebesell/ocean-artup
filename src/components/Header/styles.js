@@ -1,8 +1,8 @@
-import styled from "styled-components"
-import { Link } from "gatsby"
+import styled from 'styled-components'
+import { Link } from 'gatsby'
 
-import { navLinkStyle } from "../Nav/styles"
-import mediaQuery from "../../utils/mediaQuery"
+import { navLinkStyle } from '../Nav/styles'
+import mediaQuery from '../../utils/mediaQuery'
 
 export const HeaderContainer = styled.header`
   position: absolute;
@@ -14,10 +14,10 @@ export const HeaderContainer = styled.header`
   grid-gap: 3vw;
   align-items: center;
   padding: 1vh calc(0.75em + 1vw);
-  grid-template-areas: "nav title search";
+  grid-template-areas: 'nav title search';
   grid-template-columns: auto 1fr auto;
   ${mediaQuery.minTablet} {
-    grid-template-areas: "title nav search";
+    grid-template-areas: 'title nav search';
   }
 `
 

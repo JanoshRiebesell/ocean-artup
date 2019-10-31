@@ -1,16 +1,10 @@
-import { createGlobalStyle } from "styled-components"
+import { createGlobalStyle } from 'styled-components'
 
-import mediaQuery from "../../utils/mediaQuery"
-import typography from "../../utils/typography"
+import mediaQuery from '../../utils/mediaQuery'
+import typography from '../../utils/typography'
 
 const { phone, desktop } = mediaQuery.screens
-const {
-  fonts,
-  minFontSize,
-  maxFontSize,
-  minLineHeight,
-  maxLineHeight,
-} = typography
+const { fonts, minFontSize, maxFontSize, minLineHeight, maxLineHeight } = typography
 
 export const GlobalStyle = createGlobalStyle`
   body {

@@ -1,8 +1,8 @@
-import styled from "styled-components"
+import styled from 'styled-components'
 
-import { fadeInOnHoverParent } from "../../styles"
+import { fadeInOnHoverParent } from '../../styles'
 
-export { NavLink } from ".."
+export { NavLink } from '..'
 
 export const DesktopNavDiv = styled.nav`
   display: grid;
@@ -26,8 +26,7 @@ export const SubNav = styled.div`
   position: absolute;
   transition: ${props => props.theme.shortTrans};
   padding: 0.5em 0.7em;
-  grid-template-columns: ${props =>
-    props.children.length >= 10 ? `1fr 1fr` : `1fr`};
+  grid-template-columns: ${props => (props.children.length >= 10 ? `1fr 1fr` : `1fr`)};
   background: rgba(0, 0, 0, 0.8);
   ${fadeInOnHoverParent(NavEntry)}
 `

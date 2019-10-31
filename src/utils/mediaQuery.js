@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect } from 'react'
 
 const min = width => `only screen and (min-width: ${width}em)`
 const max = width => `only screen and (max-width: ${width}em)`
@@ -17,7 +17,10 @@ const mediaQuery = {
 
 for (const key of Object.keys(mediaQuery.screens)) {
   const Key = key[0].toUpperCase() + key.substr(1)
-  for (const [func, name] of [[min, `min`], [max, `max`]]) {
+  for (const [func, name] of [
+    [min, `min`],
+    [max, `max`],
+  ]) {
     // css query
     const query = func(mediaQuery.screens[key])
     mediaQuery[name + Key] = `@media ` + query
@@ -34,7 +37,9 @@ export const useMediaQuery = cond => {
     if (!mediaQuery[cond + `Js`])
       throw `useMediaQuery's condition should be one of (min|max)(Phone|Phablet|Tablet|etc.)`
     const query = window.matchMedia(mediaQuery[cond + `Js`])
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     const [match, setMatch] = useState(query.matches)
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     useEffect(() => {
       const handleMatch = q => setMatch(q.matches)
       query.addListener(handleMatch)

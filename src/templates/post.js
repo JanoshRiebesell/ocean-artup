@@ -1,10 +1,10 @@
-import React from "react"
-import { graphql } from "gatsby"
+import React from 'react'
+import { graphql } from 'gatsby'
 
-import Global from "../components/Global"
-import PageTitle from "../components/PageTitle"
-import { PageBody } from "../components/styles"
-import PostMeta from "../components/PostMeta"
+import Global from '../components/Global'
+import PageTitle from '../components/PageTitle'
+import { PageBody } from '../components/styles'
+import PostMeta from '../components/PostMeta'
 
 const PostTemplate = ({ data: { post }, location }) => {
   const { title, body, cover } = post

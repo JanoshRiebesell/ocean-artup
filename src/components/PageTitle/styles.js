@@ -1,5 +1,5 @@
-import styled, { css } from "styled-components"
-import Image from "gatsby-image"
+import styled, { css } from 'styled-components'
+import Image from 'gatsby-image'
 
 export const TitleDiv = styled.hgroup`
   text-align: center;

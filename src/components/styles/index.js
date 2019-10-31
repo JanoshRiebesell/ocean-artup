@@ -1,8 +1,8 @@
-import { css } from "styled-components"
+import { css } from 'styled-components'
 
-export { PageBody } from "./PageBody"
-export { LandingBody } from "./LandingBody"
-export { Grid } from "./Grid"
+export { PageBody } from './PageBody'
+export { LandingBody } from './LandingBody'
+export { Grid } from './Grid'
 
 export const fadeInOnHoverParent = parent => css`
   opacity: 0;

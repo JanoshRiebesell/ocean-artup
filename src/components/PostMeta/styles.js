@@ -1,6 +1,6 @@
-import styled, { css } from "styled-components"
+import styled, { css } from 'styled-components'
 
-import mediaQuery from "../../utils/mediaQuery"
+import mediaQuery from '../../utils/mediaQuery'
 
 const inTitle = css`
   justify-items: center;

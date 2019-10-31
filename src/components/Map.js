@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react"
+import React, { useEffect, useRef } from 'react'
 
 export default function Map({ options, onMount, className }) {
   const props = { ref: useRef(), className }
@@ -11,9 +11,7 @@ export default function Map({ options, onMount, className }) {
     if (!window.google) {
       const script = document.createElement(`script`)
       script.type = `text/javascript`
-      script.src = `https://maps.google.com/maps/api/js?key=${
-        process.env.GATSBY_GOOGLE_MAPS_API_KEY
-      }`
+      script.src = `https://maps.google.com/maps/api/js?key=${process.env.GATSBY_GOOGLE_MAPS_API_KEY}`
       const headScript = document.getElementsByTagName(`script`)[0]
       headScript.parentNode.insertBefore(script, headScript)
       script.addEventListener(`load`, onLoad)

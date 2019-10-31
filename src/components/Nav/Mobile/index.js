@@ -1,8 +1,8 @@
-import React, { memo, useState, useRef, useEffect } from "react"
-import { useSpring, animated } from "react-spring"
-import ResizeObserver from "resize-observer-polyfill"
+import React, { memo, useState, useRef, useEffect } from 'react'
+import { useSpring, animated } from 'react-spring'
+import ResizeObserver from 'resize-observer-polyfill'
 
-import { Item, Children, Icons, MobileNavDiv, Menu, NavLink } from "./styles"
+import { Item, Children, Icons, MobileNavDiv, Menu, NavLink } from './styles'
 
 export const useSize = (ref, quantity) => {
   const [size, setSize] = useState(0)
@@ -13,7 +13,7 @@ export const useSize = (ref, quantity) => {
   useEffect(() => {
     if (ref.current) observer.observe(ref.current)
     return () => observer.disconnect()
-  }, [])
+  }, [observer, ref])
   return size
 }
 

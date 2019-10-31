@@ -1,19 +1,15 @@
-import React from "react"
-import { StaticQuery, graphql } from "gatsby"
-import PropTypes from "prop-types"
+import React from 'react'
+import { StaticQuery, graphql } from 'gatsby'
+import PropTypes from 'prop-types'
 
-import { useMediaQuery } from "../../utils/mediaQuery"
+import { useMediaQuery } from '../../utils/mediaQuery'
 
-import MobileNav from "./Mobile"
-import DesktopNav from "./Desktop"
-export { navLinkStyle, NavLink } from "./styles"
+import MobileNav from './Mobile'
+import DesktopNav from './Desktop'
+export { navLinkStyle, NavLink } from './styles'
 
 const Nav = props =>
-  useMediaQuery(`maxPhablet`) ? (
-    <MobileNav {...props} />
-  ) : (
-    <DesktopNav {...props} />
-  )
+  useMediaQuery(`maxPhablet`) ? <MobileNav {...props} /> : <DesktopNav {...props} />
 
 const query = graphql`
   {
