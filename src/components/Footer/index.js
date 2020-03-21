@@ -1,37 +1,25 @@
 import React from 'react'
-import { StaticQuery, graphql } from 'gatsby'
-import PropTypes from 'prop-types'
+import { useStaticQuery, graphql } from 'gatsby'
 
 import { Container } from './styles'
 
-const Footer = ({ copyright, authorsNote }) => (
-  <Container>
-    <span>
-      © {new Date().getFullYear()} - {copyright}
-    </span>
-    <span dangerouslySetInnerHTML={{ __html: authorsNote }} />
-  </Container>
-)
-
-Footer.propTypes = {
-  copyright: PropTypes.string.isRequired,
-  authorsNote: PropTypes.string.isRequired,
-}
-
-const query = graphql`
-  {
-    footer: contentfulJson(title: { eq: "Footer" }) {
-      data {
-        copyright
-        authorsNote
+export default function Footer() {
+  const { footer } = useStaticQuery(graphql`
+    {
+      footer: contentfulJson(title: { eq: "Footer" }) {
+        data {
+          copyright
+          authorsNote
+        }
       }
     }
-  }
-`
-
-export default props => (
-  <StaticQuery
-    query={query}
-    render={data => <Footer {...data.footer.data} {...props} />}
-  />
-)
+  `)
+  return (
+    <Container>
+      <span>
+        © {new Date().getFullYear()} - {footer.data.copyright}
+      </span>
+      <span dangerouslySetInnerHTML={{ __html: footer.data.authorsNote }} />
+    </Container>
+  )
+}
