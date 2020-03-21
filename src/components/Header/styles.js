@@ -1,7 +1,6 @@
 import styled from 'styled-components'
-import { Link } from 'gatsby'
 
-import { navLinkStyle } from '../Nav/styles'
+import { NavLink } from '../Nav/styles'
 import mediaQuery from 'utils/mediaQuery'
 
 export const HeaderContainer = styled.header`
@@ -21,10 +20,11 @@ export const HeaderContainer = styled.header`
   }
 `
 
-export const SiteTitle = styled(Link)`
+export const SiteTitle = styled(NavLink).attrs({
+  activeClassName: null,
+})`
   grid-area: title;
   width: 5em;
   display: inline-grid;
-  ${navLinkStyle};
   justify-self: center;
 `

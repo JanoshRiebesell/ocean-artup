@@ -35,9 +35,6 @@ export const MobileNavDiv = styled.nav`
 `
 
 export const Item = styled.div`
-  a {
-    color: white;
-  }
   /* target arrow icons prefixing links */
   svg:first-child {
     width: 1em;
