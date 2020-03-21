@@ -1,10 +1,10 @@
 import { graphql } from 'gatsby'
 import React, { useState } from 'react'
-import Global from '../components/Global'
-import PageTitle from '../components/PageTitle'
-import PostList, { ListTitle, PostContainer } from '../components/PostList'
-import { PageBody } from '../components/styles'
-import TagList from '../components/TagList'
+import Global from 'components/Global'
+import PageTitle from 'components/PageTitle'
+import PostList, { ListTitle, PostContainer } from 'components/PostList'
+import { PageBody } from 'components/styles'
+import TagList from 'components/TagList'
 
 const filterPostsByTag = (activeTag, posts) =>
   activeTag === `all`
@@ -19,7 +19,12 @@ const sortCountTags = (tags, totalCount) => {
     count: (node.post && node.post.length) || 0,
   }))
   // Make All the first tag in the list.
-  tags.unshift(tags.splice(tags.findIndex(tag => tag.slug === `all`), 1)[0])
+  tags.unshift(
+    tags.splice(
+      tags.findIndex(tag => tag.slug === `all`),
+      1
+    )[0]
+  )
   // Set All count to the total number of posts.
   tags[0].count = totalCount
   return tags

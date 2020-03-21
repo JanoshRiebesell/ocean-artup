@@ -3,7 +3,7 @@ import React from 'react'
 import { HeaderContainer, SiteTitle } from './styles'
 import Nav from '../Nav'
 import Search from '../Search'
-import Logo from '../../assets/logo'
+import Logo from 'assets/logo'
 
 const searchIndices = [
   { name: `Pages`, title: `Pages`, hitComp: `PageHit` },

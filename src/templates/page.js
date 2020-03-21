@@ -1,9 +1,9 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
-import Global from '../components/Global'
-import PageTitle from '../components/PageTitle'
-import { PageBody } from '../components/styles'
+import Global from 'components/Global'
+import PageTitle from 'components/PageTitle'
+import { PageBody } from 'components/styles'
 
 const PageTemplate = ({ data: { page }, location }) => {
   const { title, subtitle, cover, body } = page

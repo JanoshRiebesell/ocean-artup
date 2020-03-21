@@ -1,7 +1,7 @@
 import { graphql, useStaticQuery } from 'gatsby'
 import React from 'react'
 import { ThemeProvider } from 'styled-components'
-import theme from '../../utils/theme'
+import theme from 'utils/theme'
 import Footer from '../Footer'
 import Header from '../Header'
 import Scroll from '../Scroll'

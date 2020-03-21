@@ -1,7 +1,7 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 
-import { useMediaQuery } from '../../utils/mediaQuery'
+import { useMediaQuery } from 'utils/mediaQuery'
 
 import MobileNav from './Mobile'
 import DesktopNav from './Desktop'

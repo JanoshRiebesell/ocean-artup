@@ -1,10 +1,10 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
-import Global from '../components/Global'
-import PageTitle from '../components/PageTitle'
-import Scroll from '../components/Scroll'
-import { LandingBody } from '../components/styles'
+import Global from 'components/Global'
+import PageTitle from 'components/PageTitle'
+import Scroll from 'components/Scroll'
+import { LandingBody } from 'components/styles'
 
 const IndexPage = ({ data: { page }, location }) => {
   const { title, subtitle, body } = page

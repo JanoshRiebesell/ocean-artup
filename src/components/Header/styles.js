@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { Link } from 'gatsby'
 
 import { navLinkStyle } from '../Nav/styles'
-import mediaQuery from '../../utils/mediaQuery'
+import mediaQuery from 'utils/mediaQuery'
 
 export const HeaderContainer = styled.header`
   position: absolute;

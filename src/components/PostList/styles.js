@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import { Grid } from '../../components/styles'
-import mediaQuery from '../../utils/mediaQuery'
+import { Grid } from 'components/styles'
+import mediaQuery from 'utils/mediaQuery'
 
 export const PostGrid = styled(Grid)`
   height: max-content;

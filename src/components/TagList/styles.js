@@ -2,7 +2,7 @@ import styled from 'styled-components'
 export { Tags as TagsIcon } from 'styled-icons/fa-solid'
 import { ToggleOff, ToggleOn } from 'styled-icons/fa-solid'
 
-import mediaQuery from '../../utils/mediaQuery'
+import mediaQuery from 'utils/mediaQuery'
 
 export const TagGrid = styled.div`
   display: grid;

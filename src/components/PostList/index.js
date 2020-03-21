@@ -1,5 +1,5 @@
 import React from 'react'
-import PostExcerpt from '../../components/PostExcerpt'
+import PostExcerpt from 'components/PostExcerpt'
 import { PostGrid } from './styles'
 
 export { ListTitle, PostContainer } from './styles'

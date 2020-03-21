@@ -1,10 +1,10 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
-import Global from '../components/Global'
-import PageTitle from '../components/PageTitle'
-import { PageBody } from '../components/styles'
-import Map from '../components/Map'
+import Global from 'components/Global'
+import PageTitle from 'components/PageTitle'
+import { PageBody } from 'components/styles'
+import Map from 'components/Map'
 
 const mapProps = {
   options: {

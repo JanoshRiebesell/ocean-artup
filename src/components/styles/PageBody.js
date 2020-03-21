@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import imageRow from './imageRow'
 import team from './team'
-import mediaQuery from '../../utils/mediaQuery'
+import mediaQuery from 'utils/mediaQuery'
 
 export const PageBody = styled.main`
   display: grid;
