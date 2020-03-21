@@ -25,7 +25,7 @@ const focus = css`
   }
 `
 
-const collapse = css`
+const collapsed = css`
   width: 0;
   cursor: pointer;
   color: ${props => props.theme.lightBlue};
@@ -40,7 +40,7 @@ const collapse = css`
   }
 `
 
-const expand = css`
+const expanded = css`
   background: ${props => props.theme.veryLightGray};
   width: 6em;
   margin-left: -1.6em;
@@ -55,9 +55,9 @@ export const Input = styled.input`
   border: none;
   font-size: 1em;
   background: transparent;
-  transition: ${props => props.theme.shortTrans};
+  transition: 0.3s;
   border-radius: ${props => props.theme.smallBorderRadius};
-  ${props => (props.collapse ? collapse : expand)};
+  ${props => (props.collapse ? collapsed : expanded)};
 `
 
 export const Form = styled.form`
@@ -66,7 +66,11 @@ export const Form = styled.form`
   align-items: center;
 `
 
-const hitsList = css`
+export const HitsWrapper = styled.div`
+  display: ${props => (props.show ? `grid` : `none`)};
+  max-height: 80vh;
+  overflow: scroll;
+  z-index: 2;
   position: absolute;
   right: 0;
   top: calc(100% + 0.5em);
@@ -76,43 +80,15 @@ const hitsList = css`
   padding: 0.7em 1em 0.4em;
   background: white;
   border-radius: ${props => props.theme.smallBorderRadius};
-  > * + * {
-    padding-top: 1em !important;
-    border-top: 2px solid ${props => props.theme.darkGray};
-  }
-  li + li {
-    margin-top: 0.7em;
-    padding-top: 0.7em;
-    border-top: 1px solid ${props => props.theme.lightGray};
-  }
-`
-
-const hitsGrid = css`
-  ul {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
-    grid-gap: 1em;
-    li {
-      padding: 0.3em 0.5em;
-      background: ${props => props.theme.lightestGray};
-      border-radius: ${props => props.theme.smallBorderRadius};
-    }
-  }
-`
-
-export const HitsWrapper = styled.div`
-  display: ${props => (props.show ? `grid` : `none`)};
-  max-height: 80vh;
-  overflow: scroll;
-  z-index: 2;
-  -webkit-overflow-scrolling: touch;
-  ${props => (props.asGrid ? hitsGrid : hitsList)};
   * {
     margin-top: 0;
-    padding: 0;
   }
-  ul {
-    list-style: none;
+  > div {
+    padding-top: 0.6em;
+  }
+  div + div {
+    margin-top: 0.6em;
+    border-top: 1px solid ${props => props.theme.lighterGray};
   }
   mark {
     color: ${props => props.theme.lightBlue};
@@ -121,16 +97,18 @@ export const HitsWrapper = styled.div`
   header {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 0.3em;
+    border-bottom: 2px solid ${props => props.theme.darkGray};
+    margin-bottom: 0.8em;
     h3 {
       color: white;
       background: ${props => props.theme.lightGreen};
       padding: 0.1em 0.4em;
       border-radius: ${props => props.theme.smallBorderRadius};
+      margin-bottom: 0.3em;
     }
   }
-  h3 {
-    margin: 0 0 0.5em;
+  * + header {
+    padding-top: 1em;
   }
   h4 {
     margin-bottom: 0.3em;

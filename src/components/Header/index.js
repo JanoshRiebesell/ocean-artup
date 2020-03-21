@@ -6,8 +6,8 @@ import Search from '../Search'
 import Logo from 'assets/logo'
 
 const searchIndices = [
-  { name: `Pages`, title: `Pages`, hitComp: `PageHit` },
-  { name: `Posts`, title: `Blog Posts`, hitComp: `PostHit` },
+  { name: `Pages`, title: `Pages`, type: `pageHit` },
+  { name: `Posts`, title: `Blog Posts`, type: `postHit` },
 ]
 
 const Header = ({ site }) => (
