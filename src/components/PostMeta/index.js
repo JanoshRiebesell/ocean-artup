@@ -2,10 +2,9 @@ import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 
-import { UserEdit } from 'styled-icons/fa-solid/UserEdit'
-import { Calendar as Date } from 'styled-icons/octicons/Calendar'
-import { Timer } from 'styled-icons/material/Timer'
-import { Tags } from 'styled-icons/fa-solid/Tags'
+import { UserEdit, Tags } from 'styled-icons/fa-solid'
+import { Calendar as Date } from 'styled-icons/octicons'
+import { Timer } from 'styled-icons/material'
 
 import { Meta, AuthorPhoto } from './styles'
 

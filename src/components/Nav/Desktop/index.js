@@ -1,5 +1,5 @@
 import React from 'react'
-import { DownArrow } from 'styled-icons/boxicons-regular/DownArrow'
+import { DownArrow } from 'styled-icons/boxicons-regular'
 
 import { NavEntry, SubNav, NavLink, DesktopNavDiv } from './styles'
 

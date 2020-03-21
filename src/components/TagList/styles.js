@@ -1,7 +1,6 @@
 import styled from 'styled-components'
-export { Tags as TagsIcon } from 'styled-icons/fa-solid/Tags'
-import { ToggleOff } from 'styled-icons/fa-solid/ToggleOff'
-import { ToggleOn } from 'styled-icons/fa-solid/ToggleOn'
+export { Tags as TagsIcon } from 'styled-icons/fa-solid'
+import { ToggleOff, ToggleOn } from 'styled-icons/fa-solid'
 
 import mediaQuery from '../../utils/mediaQuery'
 
