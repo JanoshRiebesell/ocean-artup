@@ -32,7 +32,7 @@ export default connectHits(function HitComp({ type, hits, onClick }) {
   const extend = { postHit }[type]
   return hits.map(hit => (
     <div key={hit.objectID}>
-      <Link to={type === `postHit` ? `/blog/` : `` + hit.slug} onClick={onClick}>
+      <Link to={hit.slug} onClick={onClick}>
         <h4>
           <Highlight attribute="title" hit={hit} tagName="mark" />
         </h4>

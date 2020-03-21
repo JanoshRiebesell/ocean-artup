@@ -15,12 +15,12 @@ const mapProps = {
     new window.google.maps.Marker({
       position: { lat: 54.32791765, lng: 10.179823233482258 },
       map,
-      title: 'GEOMAR Helmholtz-Zentrum für Ozeanforschung Kiel',
+      title: `GEOMAR Helmholtz-Zentrum für Ozeanforschung Kiel`,
     })
     new window.google.maps.Marker({
       position: { lat: 27.9924864, lng: -15.3737573 },
       map,
-      title: 'Research Site: Taliarte, Spain',
+      title: `Research Site: Taliarte, Spain`,
     })
   },
 }
@@ -45,7 +45,7 @@ export default function ContactPage({ data: { page }, location }) {
 
 export const query = graphql`
   {
-    page: contentfulPage(slug: { eq: "contact" }) {
+    page: contentfulPage(slug: { eq: "/contact" }) {
       ...pageFields
     }
   }

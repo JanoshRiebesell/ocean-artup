@@ -36,7 +36,7 @@ const PostMeta = ({ author, date, tags, body, inTitle, iconSize }) => (
         {tags.map(({ title, slug }, index) => (
           <Fragment key={slug}>
             {index > 0 && `, `}
-            <Link to={`/blog/` + slug}>{title}</Link>
+            <Link to={slug}>{title}</Link>
           </Fragment>
         ))}
       </div>

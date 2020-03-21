@@ -7,13 +7,13 @@ import PostMeta from '../PostMeta'
 const PostExcerpt = ({ post, post: { title, slug, body, cover } }) => (
   <Post>
     {cover && (
-      <Link to={`/blog/` + slug}>
+      <Link to={slug}>
         <Cover fluid={cover.fluid} alt={cover.title} />
       </Link>
     )}
     <main>
       <Title>
-        <Link to={`/blog/` + slug}>{title}</Link>
+        <Link to={slug}>{title}</Link>
       </Title>
       <PostMeta {...post} />
       <Excerpt dangerouslySetInnerHTML={{ __html: body.remark.excerpt }} />
