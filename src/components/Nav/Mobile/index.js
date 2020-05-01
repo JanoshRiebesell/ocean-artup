@@ -1,6 +1,5 @@
 import React, { memo, useState, useRef, useEffect } from 'react'
 import { useSpring, animated } from 'react-spring'
-import ResizeObserver from 'resize-observer-polyfill'
 
 import { Item, Children, Icons, MobileNavDiv, Menu, NavLink } from './styles'
 

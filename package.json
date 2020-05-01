@@ -33,7 +33,6 @@
     "react-helmet": "^6.0.0-beta",
     "react-instantsearch-dom": "^6.0.0",
     "react-spring": "^8.0.27",
-    "resize-observer-polyfill": "^1.5.1",
     "styled-components": "^5.0.1",
     "styled-icons": "^10.2.1"
   },
