@@ -21,13 +21,7 @@ const participants = css`
     }
     p:first-child {
       grid-column: 1/-1;
-      img {
-        max-width: 15em;
-      }
-    }
-    img {
-      width: 100%;
-      max-height: 10em;
+      transform: scale(0.7);
     }
     grid-template-columns: auto auto;
     ${mediaQuery.maxPhablet} {
