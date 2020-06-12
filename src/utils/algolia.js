@@ -1,21 +1,19 @@
 const queryTemplate = (type, fields = ``, filter = ``) => `{
   items: allContentful${type}${filter} {
-    edges {
-      node {
-        objectID: id
-        slug
-        title
-        body {
-          remark: childMarkdownRemark {
-            excerpt(pruneLength: 5000)
-            headings {
-              value
-              depth
-            }
+    nodes {
+      objectID: id
+      slug
+      title
+      body {
+        remark: childMarkdownRemark {
+          excerpt(pruneLength: 5000)
+          headings {
+            value
+            depth
           }
         }
-        ${fields}
       }
+      ${fields}
     }
   }
 }`
@@ -32,8 +30,7 @@ const postFields = `
   }
 `
 
-const flatten = arr =>
-  arr.map(({ node: { body, ...rest } }) => ({ ...body.remark, ...rest }))
+const flatten = arr => arr.map(({ body, ...rest }) => ({ ...body.remark, ...rest }))
 
 const settings = { attributesToSnippet: [`excerpt:20`] }
 
@@ -41,13 +38,13 @@ const queries = [
   {
     indexName: `Pages`,
     query: queryTemplate(`Page`),
-    transformer: ({ data }) => flatten(data.items.edges),
+    transformer: ({ data }) => flatten(data.items.nodes),
     settings,
   },
   {
     indexName: `Posts`,
     query: queryTemplate(`Post`, postFields),
-    transformer: ({ data }) => flatten(data.items.edges),
+    transformer: ({ data }) => flatten(data.items.nodes),
     settings,
   },
 ]

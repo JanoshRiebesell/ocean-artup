@@ -1,5 +1,5 @@
 import { graphql } from 'gatsby'
-import React, { useState } from 'react'
+import React, { useState, Fragment } from 'react'
 import Global from 'components/Global'
 import PageTitle from 'components/PageTitle'
 import PostList, { ListTitle, PostContainer } from 'components/PostList'
@@ -9,22 +9,18 @@ import TagList from 'components/TagList'
 const filterPostsByTag = (activeTag, posts) =>
   activeTag === `all`
     ? posts
-    : posts.filter(({ node }) => node.tags.map(tag => tag.slug).includes(activeTag))
+    : posts.filter(post => post.tags.map(tag => tag.slug).includes(activeTag))
 
 const readActiveTagFromUrl = urlParams => urlParams.replace(/.*tag=([^&]+).*/, `$1`)
 
 const sortCountTags = (tags, totalCount) => {
-  tags = tags.map(({ node }) => ({
-    ...node,
-    count: (node.post && node.post.length) || 0,
+  tags = tags.map(tag => ({
+    ...tag,
+    count: tag.post?.length || 0,
   }))
+  const allTagIndex = tags.findIndex(tag => tag.slug === `/all`)
   // Make All the first tag in the list.
-  tags.unshift(
-    tags.splice(
-      tags.findIndex(tag => tag.slug === `all`),
-      1
-    )[0]
-  )
+  tags.unshift(tags.splice(allTagIndex, 1)[0])
   // Set All count to the total number of posts.
   tags[0].count = totalCount
   return tags
@@ -32,10 +28,10 @@ const sortCountTags = (tags, totalCount) => {
 
 export default function BlogPage({ data, location }) {
   let { posts, tags } = data
-  tags = sortCountTags(tags.edges, posts.edges.length)
+  tags = sortCountTags(tags.nodes, posts.nodes.length)
   const urlTag = readActiveTagFromUrl(location.search)
   const [tag, setTag] = useState(urlTag || `all`)
-  const filteredPosts = filterPostsByTag(tag, posts.edges)
+  const filteredPosts = filterPostsByTag(tag, posts.nodes)
 
   const handleTagClick = tag => {
     setTag(tag)
@@ -56,14 +52,14 @@ export default function BlogPage({ data, location }) {
         <PostContainer>
           {campaigns.map(campaign => {
             const campaignPosts = filteredPosts.filter(post =>
-              post.node.tags.map(tag => tag.slug).includes(campaign.slug)
+              post.tags.map(tag => tag.slug).includes(campaign.slug)
             )
             if (!campaignPosts.length) return null
             return (
-              <>
+              <Fragment key={campaign.slug}>
                 <ListTitle>{campaign.title}</ListTitle>
                 <PostList inBlog posts={campaignPosts} />
-              </>
+              </Fragment>
             )
           })}
         </PostContainer>
@@ -75,25 +71,21 @@ export default function BlogPage({ data, location }) {
 export const query = graphql`
   {
     posts: allContentfulPost(sort: { fields: [date], order: DESC }) {
-      edges {
-        node {
-          ...postFields
-        }
+      nodes {
+        ...postFields
       }
     }
     tags: allContentfulBlogTag(sort: { fields: [title], order: ASC }) {
-      edges {
-        node {
+      nodes {
+        title
+        slug
+        post {
           title
-          slug
-          post {
-            title
-          }
-          icon {
-            title
-            file {
-              url
-            }
+        }
+        icon {
+          title
+          file {
+            url
           }
         }
       }
