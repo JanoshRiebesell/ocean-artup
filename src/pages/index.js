@@ -11,7 +11,7 @@ const IndexPage = ({ data: { page }, location }) => {
   const { excerpt, html } = body && body.remark
   return (
     <Global pageTitle={title} path={location.pathname} description={excerpt}>
-      <PageTitle height="100vh">
+      <PageTitle height="60vh">
         <h1>{title}</h1>
         <div dangerouslySetInnerHTML={{ __html: subtitle.remark.html }} />
       </PageTitle>

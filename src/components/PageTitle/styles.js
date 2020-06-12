@@ -6,7 +6,7 @@ export const TitleDiv = styled.hgroup`
   position: relative;
   color: white;
   font-size: calc(1em + 0.5vw);
-  height: ${props => props.height || `70vh`};
+  height: ${props => props.height || `45vh`};
   display: grid;
   align-content: center;
   justify-content: center;
