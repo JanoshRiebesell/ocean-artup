@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import mediaQuery from 'utils/mediaQuery'
+import { mediaQueries } from 'utils/mediaQueries'
 
 export const Container = styled.footer`
   grid-column: 1 / -1;
@@ -13,7 +13,7 @@ export const Container = styled.footer`
   a {
     color: ${props => props.theme.orange};
   }
-  ${mediaQuery.minPhone} {
+  ${mediaQueries.minPhone} {
     grid-auto-flow: column;
     justify-content: center;
   }

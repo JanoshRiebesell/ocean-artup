@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { Grid } from 'components/styles'
-import mediaQuery from 'utils/mediaQuery'
+import { mediaQueries } from 'utils/mediaQueries'
 
 export const PostGrid = styled(Grid)`
   height: max-content;
@@ -9,11 +9,11 @@ export const PostGrid = styled(Grid)`
 `
 
 export const PostContainer = styled.div`
-  ${mediaQuery.maxPhablet} {
+  ${mediaQueries.maxPhablet} {
     grid-column: 3;
     justify-self: center;
   }
-  ${mediaQuery.minPhablet} {
+  ${mediaQueries.minPhablet} {
     grid-row: 1;
     grid-column: 2 / -3;
   }

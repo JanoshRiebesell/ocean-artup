@@ -1,6 +1,6 @@
 import { css } from 'styled-components'
 
-import mediaQuery from 'utils/mediaQuery'
+import { mediaQueries } from 'utils/mediaQueries'
 
 const participants = css`
   section.participants {
@@ -24,12 +24,12 @@ const participants = css`
       transform: scale(0.7);
     }
     grid-template-columns: auto auto;
-    ${mediaQuery.maxPhablet} {
+    ${mediaQueries.maxPhablet} {
       h2 {
         grid-column: 1/-1;
       }
     }
-    ${mediaQuery.minPhablet} {
+    ${mediaQueries.minPhablet} {
       grid-template-columns: repeat(3, minmax(10em, 15em));
       grid-template-rows: repeat(4, auto);
       grid-auto-flow: column;

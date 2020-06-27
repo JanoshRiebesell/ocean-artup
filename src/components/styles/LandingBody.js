@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import mediaQuery from 'utils/mediaQuery'
+import { mediaQueries } from 'utils/mediaQueries'
 
 import about from './about'
 import participants from './participants'
@@ -37,7 +37,7 @@ export const LandingBody = styled.article`
       padding: 2em 3em;
       align-self: start;
     }
-    ${mediaQuery.minTablet} {
+    ${mediaQueries.minTablet} {
       display: grid;
       align-items: center;
       overflow: hidden;

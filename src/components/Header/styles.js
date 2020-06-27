@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import { NavLink } from '../Nav/styles'
-import mediaQuery from 'utils/mediaQuery'
+import { mediaQueries } from 'utils/mediaQueries'
 
 export const HeaderContainer = styled.header`
   position: absolute;
@@ -15,7 +15,7 @@ export const HeaderContainer = styled.header`
   padding: 1vh calc(0.75em + 1vw);
   grid-template-areas: 'nav title search';
   grid-template-columns: auto 1fr auto;
-  ${mediaQuery.minTablet} {
+  ${mediaQueries.minTablet} {
     grid-template-areas: 'title nav search';
   }
 `

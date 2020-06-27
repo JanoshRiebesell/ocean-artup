@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import imageRow from './imageRow'
 import team from './team'
-import mediaQuery from 'utils/mediaQuery'
+import { mediaQueries } from 'utils/mediaQueries'
 
 export const PageBody = styled.main`
   display: grid;
@@ -13,7 +13,7 @@ export const PageBody = styled.main`
     grid-column: 3;
   }
   margin: 9vh 0;
-  ${mediaQuery.minPhablet} {
+  ${mediaQueries.minPhablet} {
     > p {
       text-align: justify;
     }
