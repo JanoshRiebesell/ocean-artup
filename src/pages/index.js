@@ -14,8 +14,8 @@ const IndexPage = ({ data: { page }, location }) => {
       <PageTitle height="60vh">
         <h1>{title}</h1>
         <div dangerouslySetInnerHTML={{ __html: subtitle.remark.html }} />
+        <Scroll direction="down" to={1} align="center" position="absolute" />
       </PageTitle>
-      <Scroll direction="down" to={1} align="center" position="absolute" />
       {html && <LandingBody dangerouslySetInnerHTML={{ __html: html }} />}
     </Global>
   )

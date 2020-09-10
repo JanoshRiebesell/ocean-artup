@@ -16,7 +16,7 @@ const readActiveTagFromUrl = urlParams => urlParams.replace(/.*tag=([^&]+).*/, `
 const sortCountTags = (tags, totalCount) => {
   tags = tags.map(tag => ({
     ...tag,
-    count: tag.post?.length || 0,
+    count: tag.post?.length ?? 0,
   }))
   const allTagIndex = tags.findIndex(tag => tag.slug === `/all`)
   // Make All the first tag in the list.

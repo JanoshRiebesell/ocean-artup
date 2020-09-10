@@ -18,8 +18,8 @@ const pageSets = [
   [contentfulQuery(`Post`), postTemplate],
 ]
 
-exports.createPages = async ({ graphql, actions: { createPage } }) => {
-  await pageSets.forEach(async ([query, component]) => {
+exports.createPages = ({ graphql, actions }) => {
+  pageSets.forEach(async ([query, component]) => {
     const response = await graphql(query)
     if (response.errors) {
       console.error(response.errors)
@@ -27,7 +27,7 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
     }
     response.data.content.nodes.forEach(({ slug }) => {
       if (![`/contact`].includes(slug)) {
-        createPage({ path: slug, component, context: { slug } })
+        actions.createPage({ path: slug, component, context: { slug } })
       }
     })
   })
