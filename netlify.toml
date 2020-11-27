@@ -2,8 +2,8 @@
   publish = "public"
 
 [build.environment]
-  NODE_VERSION = "14.10.0"
-  YARN_VERSION = "1.22.4"
+  NODE_VERSION = "15.3.0"
+  YARN_VERSION = "1.22.10"
 
 [[redirects]]
   from = "https://ocean-artup.netlify.com/*"
