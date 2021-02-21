@@ -10,7 +10,6 @@
 
 <h3 align="center">
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/58acc8aa-2d1f-4ee7-b268-16609696f883/deploy-status)](https://app.netlify.com/sites/ocean-artup/deploys)
 [![License](https://img.shields.io/github/license/janosh/ocean-artup?label=License)](/license)
 ![GitHub Repo Size](https://img.shields.io/github/repo-size/janosh/ocean-artup?label=Repo+Size)
 ![GitHub last commit](https://img.shields.io/github/last-commit/janosh/ocean-artup?label=Last+Commit)
